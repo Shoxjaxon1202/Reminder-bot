@@ -1,29 +1,29 @@
-# import telebot
-# token="8250156289:AAG4JjRS50gcucsWcLpRW-iumfVKxz4m5to"
-# bot=telebot.TeleBot(token)
-# list1=[]
-# Id = 0
-# @bot.message_handler(commands=['start','boshla'])
-# def send(message):
-#     bot.send_message(message.chat.id,"Ro'yxat kiriting.")
-# @bot.message_handler(commands=['info'])
-# def info(message):
-#     global list1
-#     for tasks in list1:
-#         bot.send_message(message.chat.id, f"Id: {tasks['id']}, Vazifa: {tasks['text']}, Bajarilganmi?: {"bajarilgan" if tasks["isDone"]==True else "bajarilmagan" }")
-# @bot.message_handler(func=lambda message: True)
-# def tekshir(message):
-#     global Id
-#     global list1
-#     tasks = {
-#     "id": Id, 
-#     "text": message.text,
-#     "isDone": False
-#     }
-#     Id += 1
-#     list1.append(tasks)
-# print("Dastur boshlandi")
-# bot.infinity_polling()
+import telebot
+token="8250156289:AAG4JjRS50gcucsWcLpRW-iumfVKxz4m5to"
+bot=telebot.TeleBot(token)
+list1=[]
+Id = 0
+@bot.message_handler(commands=['start','boshla'])
+def send(message):
+    bot.send_message(message.chat.id,"Ro'yxat kiriting.")
+@bot.message_handler(commands=['info'])
+def info(message):
+    global list1
+    for tasks in list1:
+        bot.send_message(message.chat.id, f"Id: {tasks['id']}, Vazifa: {tasks['text']}, Bajarilganmi?: {"bajarilgan" if tasks["isDone"]==True else "bajarilmagan" }")
+@bot.message_handler(func=lambda message: True)
+def tekshir(message):
+    global Id
+    global list1
+    tasks = {
+    "id": Id, 
+    "text": message.text,
+    "isDone": False
+    }
+    Id += 1
+    list1.append(tasks)
+print("Dastur boshlandi")
+bot.infinity_polling()
 
 
 
